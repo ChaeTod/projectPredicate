@@ -19,6 +19,7 @@ import java.util.function.Predicate;
  */
 
 class Connector {
+
     private final URL url = new URL("http://itsovy.sk:5000/data");
 
     Connector() throws IOException {
@@ -59,11 +60,11 @@ public class Main {
 
     }
 
-    private static List<Country> formListOfCountries(JSONObject jsonObject){
+    private static List<Country> formListOfCountries(JSONObject jsonObject) {
 
         List<Country> countryList = new ArrayList<>();
         JSONObject obj;
-        for (int i = 0; i < jsonObject.getJSONArray("world_x").length(); i++){
+        for (int i = 0; i < jsonObject.getJSONArray("world_x").length(); i++) {
             obj = jsonObject.getJSONArray("world_x").getJSONObject(i);
             countryList.add(new Country(obj.getInt("pop"), obj.getString("code"), obj.getString("district"), obj.getString("name")));
         }
@@ -71,7 +72,7 @@ public class Main {
 
     }
 
-    private static void userPredicates(List<Country> countryList){
+    private static void userPredicates(List<Country> countryList) {
 
         Predicate<Country> countryPredicateByPopulation = x -> x.getPopulation() >= 100000;
         Netherlands netherlandsPredicate = new Netherlands();
