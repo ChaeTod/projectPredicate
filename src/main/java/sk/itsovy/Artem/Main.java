@@ -89,9 +89,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        JSONObject jsonObject = readJsonFromURl();
-        List<Country> countryList = formListOfCountries(jsonObject);
-        userPredicates(countryList);
+        userPredicates(formListOfCountries(readJsonFromURl()));
 
     }
 }
