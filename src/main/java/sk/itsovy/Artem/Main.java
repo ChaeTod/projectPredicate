@@ -19,8 +19,7 @@ import java.util.function.Predicate;
  */
 
 class Connector {
-    private final String link = "http://itsovy.sk:5000/data";
-    private final URL url = new URL(link);
+    private final URL url = new URL("http://itsovy.sk:5000/data");
 
     Connector() throws IOException {
     }
